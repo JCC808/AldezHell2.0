@@ -39,31 +39,31 @@ public class Sound {
 
     // plays the sound of a bow shooting
     public static void bow() {
-        String fileLocation = "resources/bow.wav";
+        String fileLocation = "resources/sounds/bow.wav";
         play(fileLocation);
     }
 
     // plays the sound of a door opening/closing
     public static void door() {
-        String fileLocation = "resources/door.wav";
+        String fileLocation = "resources/sounds/door.wav";
         play(fileLocation);
     }
 
     // plays the sound of a laser shooting
     public static void laser() {
-        String fileLocation = "resources/laser.wav";
+        String fileLocation = "resources/sounds/laser.wav";
         play(fileLocation);
     }
 
     // plays the sound of a sweeping thing
     public static void sweep() {
-        String fileLocation = "resources/sweep.wav";
+        String fileLocation = "resources/sounds/sweep.wav";
         play(fileLocation);
     }
 
     // plays the sound of a loading loop I found online
     public static void loading() {
-        String fileLocation = "resources/loading.wav";
+        String fileLocation = "resources/sounds/loading.wav";
         play(fileLocation);
     }
 }
