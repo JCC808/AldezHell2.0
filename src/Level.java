@@ -7,20 +7,22 @@ import java.util.Scanner;
 /**
  * Created by John8 on 3/13/2017.
  */
-public class Level extends Rectangle{
+public class Level{
 
-    public ArrayList<Walls> walls;
-    public ArrayList<GravityTiles> gravs;
-    private Color color = Color.white;
+    public ArrayList<Walls> walls = new ArrayList<>();
+    public ArrayList<GravityTiles> gravs = new ArrayList<>();
+    private Color color = Color.cyan;
+    public Level(){
 
+    }
     public void drawWalls(String textFile) throws IOException{
         int[] arr = read(textFile);
         int locx = 0, locy = 0;
-        for (int i = 0; i < arr.length; i++){
-            if (arr[i] == 1)walls.add(new Walls(locx * 40, locy * 40,40,40,color));
-            if (locx < 15){
+        for (int i = 0; i < 192; i++) {
+            if (arr[i] == 1) walls.add(new Walls(locx * 40, locy * 40, 40, 40, color));
+            if (locx < 15) {
                 locx++;
-            }else{
+            } else {
                 locx = 0;
                 locy++;
             }
@@ -38,4 +40,15 @@ public class Level extends Rectangle{
         return arr;
     }
     public void setColor(Color color){this.color = color;}
+    public void tick(Player player){
+        for(GravityTiles grav : gravs)grav.tick(player);
+    }
+    public void render(Graphics g){
+        for (int i = 0; i < walls.size(); i++) {
+            walls.get(i).render(g);
+        }
+        for (int i = 0; i < gravs.size(); i++) {
+            gravs.get(i).render(g);
+        }
+    }
 }
