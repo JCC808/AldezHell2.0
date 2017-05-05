@@ -95,7 +95,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
         if(e.getKeyChar() == 'd'||e.getKeyChar() == 'D') player.d = true;
         if(e.getKeyChar() == 'a'||e.getKeyChar() == 'A') player.a = true;
         if(e.getKeyChar() == 'w'||e.getKeyChar() == 'W') player.w = true;
-        if(e.getKeyChar() == 's'||e.getKeyChar() == 'A') player.s = true;
+        if(e.getKeyChar() == 's'||e.getKeyChar() == 'S') player.s = true;
         if(e.getKeyChar() == ' ') player.space = true;
         if(e.getKeyChar() == 'c' && e.getKeyChar() == 'h' && e.getKeyChar() == 'e' &&
                 e.getKeyChar() == 'a' && e.getKeyChar() == 't') player.cheat = true;
@@ -106,7 +106,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
         if(e.getKeyChar() == 'd'||e.getKeyChar() == 'D') player.d = false;
         if(e.getKeyChar() == 'a'||e.getKeyChar() == 'A') player.a = false;
         if(e.getKeyChar() == 'w'||e.getKeyChar() == 'W') player.w = false;
-        if(e.getKeyChar() == 's'||e.getKeyChar() == 'A') player.s = false;
+        if(e.getKeyChar() == 's'||e.getKeyChar() == 'S') player.s = false;
         if(e.getKeyChar() == ' ') player.space = false;
     }
 

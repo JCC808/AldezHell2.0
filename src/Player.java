@@ -8,8 +8,8 @@ public class Player extends Rectangle {
     public boolean w = false, a = false, s = false, d = false, space = false;
     private boolean down = true, up = true, left = true, right = true, reset = false;
     private int count = 0;
-    private double dx = 0, dy = 0,speed = 0.5;
-    public int gravity = 0;
+    private double dx = 0, dy = 0;
+    public int gravity = 0,speed = 1;
 
     public Player(int x, int y) {
         setBounds(x, y, 16, 16);
@@ -31,26 +31,26 @@ public class Player extends Rectangle {
 //I know it looks messy but it works so leave it alone, or ask before changing this
 //this checks every one of the 192 possible boxes on all sides.
 // then tells the rest of the method which direction it cant move in
-                    if ((this.getMaxY() >= level.walls.get(i).getMinY()) && (this.getMaxY() < level.walls.get(i).getMinY() + 4) &&
-                            (this.getMaxX() > level.walls.get(i).getMinX()) && (this.getMinX() < level.walls.get(i).getMaxX())){
-                        down = false;
-                        twice++;
-                    }
-                    if ((this.getMinY() >= level.walls.get(i).getMaxY()) && (this.getMinY() < level.walls.get(i).getMaxY() + 1) &&
-                            (this.getMaxX() > level.walls.get(i).getMinX()) && (this.getMinX() < level.walls.get(i).getMaxX())) {
-                        up = false;
-                        twice++;
-                    }
-                    if ((this.getMaxX() >= level.walls.get(i).getMinX()) && (this.getMaxX() < level.walls.get(i).getMinX() + 4) &&
-                            (this.getMaxY() > level.walls.get(i).getMinY()) && (this.getMinY() < level.walls.get(i).getMaxY())) {
-                        right = false;
-                        twice++;
-                    }
-                    if ((this.getMinX() >= level.walls.get(i).getMaxX()) && (this.getMinX() < level.walls.get(i).getMaxX() + 1) &&
-                            (this.getMaxY() > level.walls.get(i).getMinY()) && (this.getMinY() < level.walls.get(i).getMaxY())) {
-                        left = false;
-                        twice++;
-                    }
+                if((this.getMaxY() >= level.walls.get(i).getMinY()) && (this.getMaxY() < level.walls.get(i).getMinY()+4)&&
+                        (this.getMaxX() > level.walls.get(i).getMinX()) && (this.getMinX() < level.walls.get(i).getMaxX())){
+                    down = false;
+                    twice+=1;
+                }
+                if((this.getMinY() >= level.walls.get(i).getMaxY()) && (this.getMinY() < level.walls.get(i).getMaxY()+1)&&
+                        (this.getMaxX() > level.walls.get(i).getMinX()) && (this.getMinX() < level.walls.get(i).getMaxX())) {
+                    up = false;
+                    twice+=1;
+                }
+                if((this.getMaxX() >= level.walls.get(i).getMinX()) && (this.getMaxX() < level.walls.get(i).getMinX()+4)&&
+                        (this.getMaxY() > level.walls.get(i).getMinY()) && (this.getMinY() < level.walls.get(i).getMaxY())) {
+                    right = false;
+                    twice+=1;
+                }
+                if((this.getMinX() >= level.walls.get(i).getMaxX()) && (this.getMinX() < level.walls.get(i).getMaxX()+1)&&
+                        (this.getMaxY() > level.walls.get(i).getMinY()) && (this.getMinY() < level.walls.get(i).getMaxY())) {
+                    left = false;
+                    twice+=1;
+                }
 
             }
 //this checks the edges
