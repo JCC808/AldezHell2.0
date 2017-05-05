@@ -25,6 +25,7 @@ public class Player extends Rectangle {
         //this crazy looking, really hard to read for loop is the hit boxes for the blocks
         //for (int four = 0; four < 4; four++) {
             int twice = 0;
+            //change
             for (int i = 0; i < level.walls.size()&&twice<2; i++) {
 
 //I know it looks messy but it works so leave it alone, or ask before changing this
