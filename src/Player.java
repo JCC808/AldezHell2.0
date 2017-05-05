@@ -23,7 +23,7 @@ public class Player extends Rectangle {
 
     public void tick(Level level) {
         //this crazy looking, really hard to read for loop is the hit boxes for the blocks
-        //for (int four = 0; four < 4; four++) {
+        for (int four = 0; four < 4; four++) {
             int twice = 0;
             //change
             for (int i = 0; i < level.walls.size()&&twice<2; i++) {
@@ -119,7 +119,7 @@ public class Player extends Rectangle {
             right = true;
             dy = 0;
             dx = 0;
-        //}
+        }
     }
     public void render(Graphics g){
         g.setColor(Color.yellow);

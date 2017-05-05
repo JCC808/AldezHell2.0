@@ -33,7 +33,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
     }
 
     public Game() throws IOException {
-        Dimension dimension = new Dimension(Game.WIDTH,Game.HEIGHT);
+        Dimension dimension = new Dimension(Game.WIDTH, Game.HEIGHT);
         setPreferredSize(dimension);
         setMinimumSize(dimension);
         setMaximumSize(dimension);
@@ -47,7 +47,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
         levels.add(new Violence());
         levels.add(new Fraud());
         levels.add(new Treachery());
-        player = new Player(600,440);
+        player = new Player(600, 440);
     }
 
     private void tick() {
@@ -57,13 +57,13 @@ public class Game extends Canvas implements Runnable, KeyListener {
 
     private void render() {
         BufferStrategy bs = getBufferStrategy();
-        if (bs == null){
+        if (bs == null) {
             createBufferStrategy(3);
             return;
         }
         Graphics g = bs.getDrawGraphics();
         g.setColor(Color.white);
-        g.fillRect(0,0,Game.WIDTH,Game.HEIGHT);
+        g.fillRect(0, 0, Game.WIDTH, Game.HEIGHT);
         levels.get(level).render(g);
         player.render(g);
         g.dispose();
@@ -88,26 +88,27 @@ public class Game extends Canvas implements Runnable, KeyListener {
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {}
+    public void keyTyped(KeyEvent e) {
+    }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if(e.getKeyChar() == 'd'||e.getKeyChar() == 'D') player.d = true;
-        if(e.getKeyChar() == 'a'||e.getKeyChar() == 'A') player.a = true;
-        if(e.getKeyChar() == 'w'||e.getKeyChar() == 'W') player.w = true;
-        if(e.getKeyChar() == 's'||e.getKeyChar() == 'S') player.s = true;
-        if(e.getKeyChar() == ' ') player.space = true;
-        if(e.getKeyChar() == 'c' && e.getKeyChar() == 'h' && e.getKeyChar() == 'e' &&
+        if (e.getKeyChar() == 'd' || e.getKeyChar() == 'D') player.d = true;
+        if (e.getKeyChar() == 'a' || e.getKeyChar() == 'A') player.a = true;
+        if (e.getKeyChar() == 'w' || e.getKeyChar() == 'W') player.w = true;
+        if (e.getKeyChar() == 's' || e.getKeyChar() == 'S') player.s = true;
+        if (e.getKeyChar() == ' ') player.space = true;
+        if (e.getKeyChar() == 'c' && e.getKeyChar() == 'h' && e.getKeyChar() == 'e' &&
                 e.getKeyChar() == 'a' && e.getKeyChar() == 't') player.cheat = true;
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        if(e.getKeyChar() == 'd'||e.getKeyChar() == 'D') player.d = false;
-        if(e.getKeyChar() == 'a'||e.getKeyChar() == 'A') player.a = false;
-        if(e.getKeyChar() == 'w'||e.getKeyChar() == 'W') player.w = false;
-        if(e.getKeyChar() == 's'||e.getKeyChar() == 'S') player.s = false;
-        if(e.getKeyChar() == ' ') player.space = false;
+        if (e.getKeyChar() == 'd' || e.getKeyChar() == 'D') player.d = false;
+        if (e.getKeyChar() == 'a' || e.getKeyChar() == 'A') player.a = false;
+        if (e.getKeyChar() == 'w' || e.getKeyChar() == 'W') player.w = false;
+        if (e.getKeyChar() == 's' || e.getKeyChar() == 'S') player.s = false;
+        if (e.getKeyChar() == ' ') player.space = false;
     }
 
     @Override
@@ -124,6 +125,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
             while (delta >= 1) {
                 tick();
                 render();
+                delta--;
             }
         }
     }
