@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -21,6 +22,23 @@ public class Wrath extends Level{
         levs.add(new LevelTiles(600,240,true));
     }
     private void drawWrathLevelTiles(){
-        wraths.add(new WrathLevelTiles())
+        wraths.add(new WrathLevelTiles(0,0, false, false));
+        wraths.add(new WrathLevelTiles(240,120, false, false));
+        wraths.add(new WrathLevelTiles(80,440, false, false));
+        wraths.add(new WrathLevelTiles(320,240, false, true));
+        wraths.add(new WrathLevelTiles(400,120, false, false));
+        wraths.add(new WrathLevelTiles(400,320, false, true));
+        wraths.add(new WrathLevelTiles(520,160, false, false));
+        wraths.add(new WrathLevelTiles(480,400, false, false));
+    }
+    @Override
+    public void render(Graphics g) {
+        super.render(g);
+        for (WrathLevelTiles wrath : wraths) wrath.render(g);
+    }
+    @Override
+    public void tick(Player player) {
+        super.tick(player);
+        for(WrathLevelTiles wrath : wraths)wrath.tick(player);
     }
 }
