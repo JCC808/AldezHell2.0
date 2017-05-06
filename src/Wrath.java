@@ -21,6 +21,6 @@ public class Wrath extends Level{
         levs.add(new LevelTiles(600,240,true));
     }
     private void drawWrathLevelTiles(){
-        wraths.add(new WrathLevelTiles())
+        wraths.add(new WrathLevelTiles(0,0,true,true));
     }
 }
