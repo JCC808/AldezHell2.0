@@ -129,7 +129,7 @@ public class Player extends Rectangle {
         }
     }
     public void render(Graphics g){
-        g.setColor(Color.yellow);
+        g.setColor(Color.white);
         g.fillRect(x,y,width,height);
     }
 }

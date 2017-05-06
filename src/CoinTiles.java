@@ -14,7 +14,7 @@ public class CoinTiles extends Rectangle{
     }
     public void render(Graphics g){
         if(visible) {
-            g.setColor(Color.pink);
+            g.setColor(Color.yellow);
             g.fillOval(x, y, width, height);
         }
     }

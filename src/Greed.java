@@ -20,6 +20,7 @@ public class Greed extends Level{
     }
     //location of coins is the box location+10
     private void drawCoins(){
+        coins.add(new CoinTiles(10, 170));
         coins.add(new CoinTiles(90, 90));
         coins.add(new CoinTiles(130, 170));
         coins.add(new CoinTiles(10, 250));
