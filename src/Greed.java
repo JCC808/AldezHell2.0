@@ -18,7 +18,22 @@ public class Greed extends Level{
         startx = 612;
         starty = 12;
     }
-    private void drawCoins(){}
+    //location of coins is the box location+10
+    private void drawCoins(){
+        coins.add(new CoinTiles(90, 90));
+        coins.add(new CoinTiles(130, 170));
+        coins.add(new CoinTiles(10, 250));
+        coins.add(new CoinTiles(210, 370));
+        coins.add(new CoinTiles(290, 130));
+        coins.add(new CoinTiles(330, 250));
+        coins.add(new CoinTiles(330, 450));
+        coins.add(new CoinTiles(370, 210));
+        coins.add(new CoinTiles(410, 90));
+        coins.add(new CoinTiles(530, 370));
+        coins.add(new CoinTiles(570, 90));
+        coins.add(new CoinTiles(610, 250));
+
+    }
     private void drawLevelTiles(){
         levs.add(new LevelTiles(0,0,true));
     }
