@@ -28,7 +28,7 @@ public class Greed extends Level{
         coins.add(new CoinTiles(330, 250));
         coins.add(new CoinTiles(330, 450));
         coins.add(new CoinTiles(370, 210));
-        coins.add(new CoinTiles(410, 90));
+        coins.add(new CoinTiles(410, 50));
         coins.add(new CoinTiles(530, 370));
         coins.add(new CoinTiles(570, 90));
         coins.add(new CoinTiles(610, 250));
