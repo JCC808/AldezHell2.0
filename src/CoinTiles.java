@@ -4,12 +4,35 @@ import java.awt.*;
  * Created by John8 on 3/16/2017.
  */
 public class CoinTiles extends Rectangle{
+    public static int count = 0;
+    public static boolean pair = true;
+    private boolean pare = true;
+    private boolean visible = true;
 
     public CoinTiles(int x, int y) {
         setBounds(x, y,16, 16);
     }
     public void render(Graphics g){
-        g.setColor(Color.green);
-        g.fillOval(x,y,width,height);
+        if(visible) {
+            g.setColor(Color.pink);
+            g.fillOval(x, y, width, height);
+        }
+    }
+    public void tick(Player player){
+        if (pare!=pair){
+            pare = !pare;
+            visible = true;
+        }
+        if (visible && player.intersects(this)){
+            count++;
+            visible = false;
+        }
+        if (count > 3){
+            count = 0;
+            player.reset();
+            pair = !pair;
+            pare = !pare;
+            visible = true;
+        }
     }
 }

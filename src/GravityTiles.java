@@ -24,7 +24,7 @@ public class GravityTiles extends Rectangle {
         return gravDirection;
     }
     public void tick(Player player){
-        if (player.gravity == gravDirection && player.intersects(this)) player.gravity = gravDirection;
+        if (!(player.gravity == gravDirection) && player.intersects(this)) player.gravity = gravDirection;
     }
     public void render(Graphics g){
         g.drawImage(img,x,y,null);

@@ -5,19 +5,23 @@ import java.awt.*;
  */
 public class Player extends Rectangle {
     public static boolean cheat = false;
-    public boolean w = false, a = false, s = false, d = false, space = false;
+    public boolean w = false, a = false, s = false, d = false, space, nextLevel = false;
     private boolean down = true, up = true, left = true, right = true, reset = false;
     private int count = 0;
     private double dx = 0, dy = 0;
-    public int gravity = 0,speed = 1;
+    public int gravity = 0,speed = 1,startx = 600,starty = 440;
 
     public Player(int x, int y) {
         setBounds(x, y, 16, 16);
+        space = false;
     }
 
     public void next() {
-        x = -20;
-        y = -20;
+        nextLevel = true;
+    }
+    public void reset(){
+        x = startx;
+        y= starty;
         gravity = 0;
     }
 
@@ -26,32 +30,34 @@ public class Player extends Rectangle {
         for (int four = 0; four < 4; four++) {
             int twice = 0;
             //change
-            for (int i = 0; i < level.walls.size()&&twice<2; i++) {
+            if(!cheat) {
+                for (int i = 0; i < level.walls.size() && twice < 2; i++) {
 
 //I know it looks messy but it works so leave it alone, or ask before changing this
 //this checks every one of the 192 possible boxes on all sides.
 // then tells the rest of the method which direction it cant move in
-                if((this.getMaxY() >= level.walls.get(i).getMinY()) && (this.getMaxY() < level.walls.get(i).getMinY()+4)&&
-                        (this.getMaxX() > level.walls.get(i).getMinX()) && (this.getMinX() < level.walls.get(i).getMaxX())){
-                    down = false;
-                    twice+=1;
-                }
-                if((this.getMinY() >= level.walls.get(i).getMaxY()) && (this.getMinY() < level.walls.get(i).getMaxY()+1)&&
-                        (this.getMaxX() > level.walls.get(i).getMinX()) && (this.getMinX() < level.walls.get(i).getMaxX())) {
-                    up = false;
-                    twice+=1;
-                }
-                if((this.getMaxX() >= level.walls.get(i).getMinX()) && (this.getMaxX() < level.walls.get(i).getMinX()+4)&&
-                        (this.getMaxY() > level.walls.get(i).getMinY()) && (this.getMinY() < level.walls.get(i).getMaxY())) {
-                    right = false;
-                    twice+=1;
-                }
-                if((this.getMinX() >= level.walls.get(i).getMaxX()) && (this.getMinX() < level.walls.get(i).getMaxX()+1)&&
-                        (this.getMaxY() > level.walls.get(i).getMinY()) && (this.getMinY() < level.walls.get(i).getMaxY())) {
-                    left = false;
-                    twice+=1;
-                }
+                    if ((this.getMaxY() >= level.walls.get(i).getMinY()) && (this.getMaxY() < level.walls.get(i).getMinY() + 4) &&
+                            (this.getMaxX() > level.walls.get(i).getMinX()) && (this.getMinX() < level.walls.get(i).getMaxX())) {
+                        down = false;
+                        twice += 1;
+                    }
+                    if ((this.getMinY() >= level.walls.get(i).getMaxY()) && (this.getMinY() < level.walls.get(i).getMaxY() + 1) &&
+                            (this.getMaxX() > level.walls.get(i).getMinX()) && (this.getMinX() < level.walls.get(i).getMaxX())) {
+                        up = false;
+                        twice += 1;
+                    }
+                    if ((this.getMaxX() >= level.walls.get(i).getMinX()) && (this.getMaxX() < level.walls.get(i).getMinX() + 4) &&
+                            (this.getMaxY() > level.walls.get(i).getMinY()) && (this.getMinY() < level.walls.get(i).getMaxY())) {
+                        right = false;
+                        twice += 1;
+                    }
+                    if ((this.getMinX() >= level.walls.get(i).getMaxX()) && (this.getMinX() < level.walls.get(i).getMaxX() + 1) &&
+                            (this.getMaxY() > level.walls.get(i).getMinY()) && (this.getMinY() < level.walls.get(i).getMaxY())) {
+                        left = false;
+                        twice += 1;
+                    }
 
+                }
             }
 //this checks the edges
             if (x >= 624) right = false;
@@ -99,6 +105,7 @@ public class Player extends Rectangle {
                 count++;
                 if(count == 50) {
                     count = 0;
+                    space = false;
                     reset = false;
                 }
             }

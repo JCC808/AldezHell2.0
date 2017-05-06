@@ -51,6 +51,13 @@ public class Game extends Canvas implements Runnable, KeyListener {
     }
 
     private void tick() {
+        if(player.nextLevel){
+            level++;
+            player.startx = levels.get(level).startx;
+            player.starty = levels.get(level).starty;
+            player.reset();
+            player.nextLevel=false;
+        }
         levels.get(level).tick(player);
         player.tick(levels.get(level));
     }

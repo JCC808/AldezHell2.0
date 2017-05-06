@@ -11,6 +11,8 @@ public class Level{
 
     public ArrayList<Walls> walls = new ArrayList<>();
     public ArrayList<GravityTiles> gravs = new ArrayList<>();
+    public ArrayList<LevelTiles> levs = new ArrayList<>();
+    public int startx,starty;
     private Color color = Color.cyan;
     public Level(){
 
@@ -42,13 +44,11 @@ public class Level{
     public void setColor(Color color){this.color = color;}
     public void tick(Player player){
         for(GravityTiles grav : gravs)grav.tick(player);
+        for(LevelTiles lev: levs)lev.tick(player);
     }
     public void render(Graphics g){
-        for (int i = 0; i < walls.size(); i++) {
-            walls.get(i).render(g);
-        }
-        for (int i = 0; i < gravs.size(); i++) {
-            gravs.get(i).render(g);
-        }
+        for (Walls wall: walls) wall.render(g);
+        for (GravityTiles grav: gravs) grav.render(g);
+        for (LevelTiles lev : levs ) lev.render(g);
     }
 }
