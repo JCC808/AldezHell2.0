@@ -22,10 +22,10 @@ public class Fraud extends Level{
     }
     private void drawFraudLevelTiles(){
         frauds.add(new FraudLevelTiles(40,0,false));
-        frauds.add(new FraudLevelTiles(0,240,false));
-        frauds.add(new FraudLevelTiles(0,400,false));
         frauds.add(new FraudLevelTiles(120,160,false));
+        frauds.add(new FraudLevelTiles(0,240,false));
         frauds.add(new FraudLevelTiles(120,320,false));
+        frauds.add(new FraudLevelTiles(0,400,false));
         frauds.add(new FraudLevelTiles(240,0,false));
         frauds.add(new FraudLevelTiles(320,440,false));
         frauds.add(new FraudLevelTiles(400,0,false));
