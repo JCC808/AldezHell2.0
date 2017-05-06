@@ -21,6 +21,10 @@ public class WrathLevelTiles extends LevelTiles {
                 move = -move;
             }
         }
+        if (x >= 602) move = -move;
+        if (x <= 0) move = -move;
+        if (y >= 442) move = -move;
+        if (y <= 0) move = -move;
         if(up){
             y += move;
         }else{

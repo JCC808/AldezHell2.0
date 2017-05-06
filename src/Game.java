@@ -52,7 +52,6 @@ public class Game extends Canvas implements Runnable, KeyListener {
         levels.add(new Treachery());
         player = new Player(600, 440);
     }
-
     private void tick() {
         if(player.nextLevel){
             level++;
