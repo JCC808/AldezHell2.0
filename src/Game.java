@@ -111,6 +111,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
         if (e.getKeyChar() == 's' || e.getKeyChar() == 'S') player.s = true;
         if (e.getKeyChar() == ' ') player.space = true;
         if (e.getKeyChar() == 'O') player.cheat = false;
+        if (e.getKeyChar() == 'P') player.cheat = true;
     }
 
     @Override
