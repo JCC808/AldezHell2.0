@@ -8,11 +8,9 @@ import java.io.IOException;
  */
 public class Treachery extends Level{
     public Treachery()throws IOException{
+        setColor(Color.black);
         drawWalls("resources/Level8.txt");
         drawLevelTiles();
-        Game.setBackColor(Color.black);
-        setColor(Color.black);
-        LevelTiles.setBadColor(Color.black);
         startx = 600;
         starty = 440;
     }
@@ -22,8 +20,13 @@ public class Treachery extends Level{
         levs.add(new LevelTiles(40,200,false));
         levs.add(new LevelTiles(240,80,false));
         levs.add(new LevelTiles(200,280,false));
-        levs.add(new LevelTiles(320,160,false));
+        levs.add(new LevelTiles(320,240,false));
         levs.add(new LevelTiles(320,360,false));
         levs.add(new LevelTiles(480,440,false));
+    }
+    @Override
+    public void render(Graphics g){
+        if (LevelTiles.badColor != Color.black) LevelTiles.setBadColor(Color.black);
+        super.render(g);
     }
 }

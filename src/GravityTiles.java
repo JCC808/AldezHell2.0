@@ -9,16 +9,22 @@ import java.io.*;
 public class GravityTiles extends Rectangle {
     private int gravDirection;
     private BufferedImage img;
-    public GravityTiles(int x, int y, int gravDirection){
-        setBounds(x,y,40,40);
-        this.gravDirection = gravDirection;
+    public GravityTiles(int x, int y, int gravDirection) {
+        if (gravDirection == 0) {
+            setBounds(x,y,10,10);
+            this.gravDirection = gravDirection;
+        } else {
+            setBounds(x, y, 40, 40);
+            this.gravDirection = gravDirection;
 
-        try{
-            if(gravDirection == 1) img = ImageIO.read(new File("resources/pictures/ArrowRight.png"));
-            if(gravDirection == 2) img = ImageIO.read(new File("resources/pictures/ArrowDown.png"));
-            if(gravDirection == 3) img = ImageIO.read(new File("resources/pictures/ArrowLeft.png"));
-            if(gravDirection == 4) img = ImageIO.read(new File("resources/pictures/ArrowUp.png"));
-        } catch (IOException e){}
+            try {
+                if (gravDirection == 1) img = ImageIO.read(new File("resources/pictures/ArrowRight.png"));
+                if (gravDirection == 2) img = ImageIO.read(new File("resources/pictures/ArrowDown.png"));
+                if (gravDirection == 3) img = ImageIO.read(new File("resources/pictures/ArrowLeft.png"));
+                if (gravDirection == 4) img = ImageIO.read(new File("resources/pictures/ArrowUp.png"));
+            } catch (IOException e) {
+            }
+        }
     }
     public int getGravDirection(){
         return gravDirection;
@@ -27,6 +33,10 @@ public class GravityTiles extends Rectangle {
         if (!(player.gravity == gravDirection) && player.intersects(this)) player.gravity = gravDirection;
     }
     public void render(Graphics g){
-        g.drawImage(img,x,y,null);
+        if (gravDirection>0) {
+            g.drawImage(img, x, y, null);
+        }else{
+            g.fillRect(x,y,width,height);
+        }
     }
 }

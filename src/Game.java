@@ -17,7 +17,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
     private ArrayList<Level> levels = new ArrayList<>();
     private Player player;
     private static final int WIDTH = 640, HEIGHT = 480;
-    private static Color backColor = Color.white;
+    private static Color backColor = Color.black;
 
 
     public static void main(String[] args) throws IOException {

@@ -5,8 +5,8 @@ import java.awt.*;
  */
 public class LevelTiles extends Rectangle {
 
-    private boolean type;
-    private static Color goodColor, badColor;
+    public boolean type;
+    public static Color goodColor = Color.green, badColor = Color.red;
 
     public LevelTiles(int x,int y, boolean type){
         setBounds(x,y,40,40);
