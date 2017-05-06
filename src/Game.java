@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class Game extends Canvas implements Runnable, KeyListener {
     private boolean isRunning = false;
-    public static int level = 0;
+    public static int level = 5;
     private Thread thread;
     public static ArrayList<Level> levels = new ArrayList<>();
     private Player player;

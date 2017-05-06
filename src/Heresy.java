@@ -14,8 +14,7 @@ public class Heresy extends Level{
         starty = 452;
     }
     private void drawLevelTiles(){
-        levs.add(new LevelTiles(600,0,true));
-        //make this one a false red
+        levs.add(new HeresyLevelTiles(600,0,true));    //make this one a false red
         levs.add(new LevelTiles(40,0,false));
         levs.add(new LevelTiles(40,360,false));
         levs.add(new LevelTiles(200,280,false));
@@ -27,18 +26,6 @@ public class Heresy extends Level{
         levs.add(new LevelTiles(480,360,false));
         levs.add(new LevelTiles(600,240,false));
         levs.add(new LevelTiles(600,480,false));
-        levs.add(new LevelTiles(40,0,false));
-        levs.get(12) //make this one a false green
-    }
-
-    @Override
-    public void render(Graphics g) {
-        super.render(g);
-        if (type) {
-            g.setColor(goodColor);
-            g.fillOval(x, y, width, height);
-        }else{
-            g.setColor(badColor);
-            g.fillOval(x, y, width, height);
+        levs.add(new HeresyLevelTiles(40,0,false));    //make this one a false green
     }
 }
