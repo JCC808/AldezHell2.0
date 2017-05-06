@@ -14,8 +14,14 @@ public class Greed extends Level{
     public Greed() throws IOException{
         drawWalls("resources/Level3.txt");
         drawCoins();
+        drawLevelTiles();
+        startx = 612;
+        starty = 12;
     }
     private void drawCoins(){}
+    private void drawLevelTiles(){
+        levs.add(new LevelTiles(0,0,true));
+    }
     @Override
     public void tick(Player player) {
         super.tick(player);
