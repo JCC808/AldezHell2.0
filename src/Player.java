@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.util.Scanner;
 
 /**
  * Created by John8 on 3/13/2017.

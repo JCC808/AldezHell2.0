@@ -17,6 +17,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
     private ArrayList<Level> levels = new ArrayList<>();
     private Player player;
     private static final int WIDTH = 640, HEIGHT = 480;
+    private static Color backColor = Color.white;
 
 
     public static void main(String[] args) throws IOException {
@@ -71,7 +72,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
             return;
         }
         Graphics g = bs.getDrawGraphics();
-        g.setColor(Color.white);
+        g.setColor(backColor);
         g.fillRect(0, 0, Game.WIDTH, Game.HEIGHT);
         levels.get(level).render(g);
         player.render(g);
@@ -95,6 +96,8 @@ public class Game extends Canvas implements Runnable, KeyListener {
             e.printStackTrace();
         }
     }
+
+    public static void setBackColor(Color color){backColor = color;}
 
     @Override
     public void keyTyped(KeyEvent e) {

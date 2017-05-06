@@ -6,13 +6,11 @@ import java.awt.*;
 public class LevelTiles extends Rectangle {
 
     private boolean type;
-    private Color color;
+    private static Color goodColor, badColor;
 
     public LevelTiles(int x,int y, boolean type){
         setBounds(x,y,40,40);
         this.type = type;
-        if (type) color = Color.green;
-        else color = Color.red;
     }
     public void tick(Player player){
         if (player.intersects(this)){
@@ -24,8 +22,19 @@ public class LevelTiles extends Rectangle {
         }
     }
     public void render(Graphics g){
-        g.setColor(color);
-        g.fillOval(x,y,width,height);
+        if (type) {
+            g.setColor(goodColor);
+            g.fillOval(x, y, width, height);
+        }else{
+            g.setColor(badColor);
+            g.fillOval(x, y, width, height);
+        }
+    }
+    public static void setGoodColor(Color color){
+        goodColor = color;
+    }
+    public static void setBadColor(Color color){
+        badColor = color;
     }
 
 }
