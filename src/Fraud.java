@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -20,9 +21,23 @@ public class Fraud extends Level{
     }
     private void drawFraudLevelTiles(){
         frauds.add(new FraudLevelTiles(40,0,false));
-        //more
+        frauds.add(new FraudLevelTiles(0,240,false));
+        frauds.add(new FraudLevelTiles(0,400,false));
+        frauds.add(new FraudLevelTiles(120,160,false));
+        frauds.add(new FraudLevelTiles(120,320,false));
+        frauds.add(new FraudLevelTiles(240,0,false));
+        frauds.add(new FraudLevelTiles(320,440,false));
+        frauds.add(new FraudLevelTiles(400,0,false));
+        frauds.add(new FraudLevelTiles(480,440,false));
+        frauds.add(new FraudLevelTiles(560,0,false));
+
     }
     public static void remove(){
         frauds.remove(frauds.size()-1);
+    }
+
+    public void render(Graphics g) {
+        super.render(g);
+        for (FraudLevelTiles fraud : frauds) fraud.render(g);
     }
 }
