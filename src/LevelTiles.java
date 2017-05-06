@@ -33,8 +33,5 @@ public class LevelTiles extends Rectangle {
     public static void setGoodColor(Color color){
         goodColor = color;
     }
-    public static void setBadColor(Color color){
-        badColor = color;
-    }
-
+    public static void setBadColor(Color color) { badColor = color; }
 }
