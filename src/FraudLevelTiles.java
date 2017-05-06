@@ -13,7 +13,7 @@ public class FraudLevelTiles extends LevelTiles {
                 player.next();
             }else{
                 player.reset();
-                Fraud.remove();
+                Fraud.remove = true;
             }
         }
     }

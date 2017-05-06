@@ -9,6 +9,7 @@ import java.util.ArrayList;
  */
 public class Fraud extends Level{
     public static ArrayList<FraudLevelTiles> frauds = new ArrayList();
+    public static boolean remove = false;
     public Fraud() throws IOException{
         drawWalls("resources/Level7.txt");
         drawLevelTiles();
@@ -32,12 +33,20 @@ public class Fraud extends Level{
         frauds.add(new FraudLevelTiles(560,0,false));
 
     }
-    public static void remove(){
-        frauds.remove(frauds.size()-1);
-    }
 
+    @Override
     public void render(Graphics g) {
         super.render(g);
         for (FraudLevelTiles fraud : frauds) fraud.render(g);
+    }
+
+    @Override
+    public void tick(Player player) {
+        super.tick(player);
+        for (FraudLevelTiles fraud: frauds) fraud.tick(player);
+        if (remove){
+            frauds.remove(frauds.size()-1);
+            remove = false;
+        }
     }
 }
