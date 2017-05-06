@@ -12,9 +12,9 @@ import java.util.Scanner;
  */
 public class Game extends Canvas implements Runnable, KeyListener {
     private boolean isRunning = false;
-    private int level = 0;
+    public static int level = 0;
     private Thread thread;
-    private ArrayList<Level> levels = new ArrayList<>();
+    public static ArrayList<Level> levels = new ArrayList<>();
     private Player player;
     private static final int WIDTH = 640, HEIGHT = 480;
     private static Color backColor = Color.black;
