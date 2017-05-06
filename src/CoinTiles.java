@@ -10,7 +10,7 @@ public class CoinTiles extends Rectangle{
     private boolean visible = true;
 
     public CoinTiles(int x, int y) {
-        setBounds(x, y,16, 16);
+        setBounds(x, y,20, 20);
     }
     public void render(Graphics g){
         if(visible) {

@@ -5,6 +5,7 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Created by John8 on 3/13/2017.
@@ -20,6 +21,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
 
     public static void main(String[] args) throws IOException {
         Game game = new Game();
+        Scanner scan = new Scanner(System.in);
         JFrame frame = new JFrame();
         frame.setTitle("Adlez");
         frame.add(game);
@@ -105,8 +107,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
         if (e.getKeyChar() == 'w' || e.getKeyChar() == 'W') player.w = true;
         if (e.getKeyChar() == 's' || e.getKeyChar() == 'S') player.s = true;
         if (e.getKeyChar() == ' ') player.space = true;
-        if (e.getKeyChar() == 'c' && e.getKeyChar() == 'h' && e.getKeyChar() == 'e' &&
-                e.getKeyChar() == 'a' && e.getKeyChar() == 't') player.cheat = true;
+        if (e.getKeyChar() == 'O') player.cheat = false;
     }
 
     @Override

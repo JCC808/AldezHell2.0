@@ -1,10 +1,11 @@
 import java.awt.*;
+import java.util.Scanner;
 
 /**
  * Created by John8 on 3/13/2017.
  */
 public class Player extends Rectangle {
-    public static boolean cheat = false;
+    public boolean cheat = true;
     public boolean w = false, a = false, s = false, d = false, space, nextLevel = false;
     private boolean down = true, up = true, left = true, right = true, reset = false;
     private int count = 0;
@@ -30,7 +31,7 @@ public class Player extends Rectangle {
         for (int four = 0; four < 4; four++) {
             int twice = 0;
             //change
-            if(!cheat) {
+            if(cheat) {
                 for (int i = 0; i < level.walls.size() && twice < 2; i++) {
 
 //I know it looks messy but it works so leave it alone, or ask before changing this
