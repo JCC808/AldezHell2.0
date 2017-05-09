@@ -22,7 +22,6 @@ public class Game extends Canvas implements Runnable, KeyListener {
 
     public static void main(String[] args) throws IOException {
         Game game = new Game();
-        Scanner scan = new Scanner(System.in);
         JFrame frame = new JFrame();
         frame.setTitle("Adlez");
         frame.add(game);
@@ -134,6 +133,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
             delta += (now - lastTime) / ns;
             lastTime = now;
             while (delta >= 1) {
+                if(level>8)stop();
                 tick();
                 render();
                 delta--;

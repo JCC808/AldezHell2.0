@@ -10,7 +10,7 @@ public class Heresy extends Level{
     public Heresy() throws IOException {
         drawWalls("resources/Level5.txt");
         drawLevelTiles();
-        startx = 12;
+        startx = 52;
         starty = 452;
     }
     private void drawLevelTiles(){
@@ -26,6 +26,6 @@ public class Heresy extends Level{
         levs.add(new LevelTiles(480,360,false));
         levs.add(new LevelTiles(600,240,false));
         levs.add(new LevelTiles(600,480,false));
-        levs.add(new HeresyLevelTiles(40,0,false));    //make this one a false green
+        levs.add(new HeresyLevelTiles(0,0,false));    //make this one a false green
     }
 }
