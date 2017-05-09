@@ -27,7 +27,7 @@ public class CoinTiles extends Rectangle{
             count++;
             visible = false;
         }
-        if (count > 3){
+        if (count > 2){
             count = 0;
             player.reset();
             pair = !pair;
