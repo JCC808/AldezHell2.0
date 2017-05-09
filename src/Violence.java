@@ -14,6 +14,7 @@ public class Violence extends Level{
         startx = 12;
         starty = 452;
     }
+    //put here
     private void drawLevelTiles(){
         levs.add(new LevelTiles(600,240,true));
     }
