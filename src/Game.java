@@ -30,6 +30,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        System.out.print("go");
         game.start();
 
     }
@@ -84,7 +85,6 @@ public class Game extends Canvas implements Runnable, KeyListener {
         thread = new Thread(this);
         thread.start();
     }
-//comment
     public synchronized void stop() {
         if (!isRunning) return;
         isRunning = false;
