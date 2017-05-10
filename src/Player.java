@@ -16,6 +16,18 @@ public class Player extends Rectangle {
         space = false;
     }
 
+    public Player(int x, int y, int startx, int starty) {
+        setBounds(x, y, 16, 16);
+        this.startx = startx;
+        this.starty = starty;
+        space = false;
+    }
+
+//    public void change(int x, int y){
+//        this.x = x;
+//        this.y = y;
+//        System.out.println("hi");
+//    }
     public void next() {
         nextLevel = true;
     }
@@ -23,6 +35,16 @@ public class Player extends Rectangle {
         x = startx;
         y= starty;
         gravity = 0;
+    }
+    public void reset(int xa, int yb){
+        x = xa;
+        y= yb;
+        gravity = 0;
+    }
+
+    //mostly just for gluttony
+    public void setGravity(int input){
+        gravity = input;
     }
 
     public void tick(Level level) {
