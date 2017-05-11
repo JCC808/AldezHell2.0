@@ -18,11 +18,11 @@ public class Game extends Canvas implements Runnable, KeyListener {
     private Player player;
     private static final int WIDTH = 640, HEIGHT = 480;
     private static Color backColor = Color.black;
-
+    private static JFrame frame = new JFrame();
 
     public static void main(String[] args) throws IOException {
         Game game = new Game();
-        JFrame frame = new JFrame();
+        Scanner scan = new Scanner(System.in);
         frame.setTitle("Adlez");
         frame.add(game);
         frame.setResizable(false);
@@ -30,7 +30,6 @@ public class Game extends Canvas implements Runnable, KeyListener {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        System.out.print("go");
         game.start();
 
     }
@@ -55,6 +54,9 @@ public class Game extends Canvas implements Runnable, KeyListener {
     private void tick() {
         if(player.nextLevel){
             level++;
+            if(level == 9) {
+                frame.dispose();
+            }
             player.startx = levels.get(level).startx;
             player.starty = levels.get(level).starty;
             player.reset();
@@ -85,6 +87,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
         thread = new Thread(this);
         thread.start();
     }
+
     public synchronized void stop() {
         if (!isRunning) return;
         isRunning = false;
@@ -133,7 +136,6 @@ public class Game extends Canvas implements Runnable, KeyListener {
             delta += (now - lastTime) / ns;
             lastTime = now;
             while (delta >= 1) {
-                if(level>8)stop();
                 tick();
                 render();
                 delta--;

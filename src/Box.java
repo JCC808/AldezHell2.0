@@ -1,50 +1,25 @@
 import java.awt.*;
 
 /**
- * Created by John8 on 3/13/2017.
+ * Created by Juhyoung Lee 2 on 5/10/2017.
  */
-public class Player extends Rectangle {
-    public boolean cheat = true;
-    public static boolean w = false, a = false, s = false, d = false, space, nextLevel = false;
-    public boolean down = true, up = true, left = true, right = true, reset = false;
-    public int count = 0;
-    public double dx = 0, dy = 0;
-    public int gravity = 0,speed = 1,startx = 600,starty = 440;
+public class Box extends Player {
+    private int xstart, ystart;
 
-    public Player(int x, int y) {
-        setBounds(x, y, 16, 16);
-        space = false;
+
+    public Box(int x, int y){
+        super(x, y);
+        this.xstart = x;
+        this.ystart = y;
+        gravity = 0;
     }
 
-    public Player(int x, int y, int startx, int starty) {
-        setBounds(x, y, 16, 16);
-        this.startx = startx;
-        this.starty = starty;
-        space = false;
-    }
-
-//    public void change(int x, int y){
-//        this.x = x;
-//        this.y = y;
-//        System.out.println("hi");
-//    }
-    public void next() {
-        nextLevel = true;
+    public void render(Graphics g){
+        g.setColor(Color.green);
+        g.fillRect(x,y,width,height);
     }
     public void reset(){
-        x = startx;
-        y= starty;
-        gravity = 0;
-    }
-    public void reset(int xa, int yb){
-        x = xa;
-        y= yb;
-        gravity = 0;
-    }
-
-    //mostly just for gluttony
-    public void setGravity(int input){
-        gravity = input;
+        super.reset(600, 50);
     }
 
     public void tick(Level level) {
@@ -54,6 +29,7 @@ public class Player extends Rectangle {
             //change
             if(cheat) {
                 for (int i = 0; i < level.walls.size() && twice < 2; i++) {
+
 
 //I know it looks messy but it works so leave it alone, or ask before changing this
 //this checks every one of the 192 possible boxes on all sides.
@@ -90,34 +66,19 @@ public class Player extends Rectangle {
 
 //normal change in location based off of key depression
 // this also doesn't allow you do speed up or slow down your descent caused by gravity
+
             if (gravity == 1) {
-                if (!right) reset = true;
-                d = false;
-                a = false;
                 dx += speed;
             }
             if (gravity == 2) {
-                if (!down) reset = true;
-                w = false;
-                s = false;
                 dy +=speed;
             }
             if (gravity == 3) {
-                if (!left) reset = true;
-                d = false;
-                a = false;
                 dx -=speed;
             }
             if (gravity == 4) {
-                if (!up) reset = true;
-                s = false;
-                w = false;
                 dy -=speed;
             }
-            if (a) dx -=speed;
-            if (d) dx +=speed;
-            if (w) dy -=speed;
-            if (s) dy +=speed;
 
             if (space && reset) {
                 if (gravity == 1) dx = -speed;
@@ -131,6 +92,7 @@ public class Player extends Rectangle {
                     reset = false;
                 }
             }
+
 //it it cant move in a direction but it wants to... this says no...
             if (!right && dx > 0) dx = 0;
             if (!left && dx < 0) dx = 0;
@@ -142,16 +104,14 @@ public class Player extends Rectangle {
 //resets all of the values, ready for another method call.
 //I know i could define them just for the method, but i didn't...
 //change it if it bothers you that much
+
             up = true;
             down = true;
             left = true;
             right = true;
             dy = 0;
             dx = 0;
+
         }
-    }
-    public void render(Graphics g){
-        g.setColor(Color.white);
-        g.fillRect(x,y,width,height);
     }
 }

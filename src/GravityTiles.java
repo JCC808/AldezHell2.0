@@ -29,9 +29,11 @@ public class GravityTiles extends Rectangle {
     public int getGravDirection(){
         return gravDirection;
     }
+
     public void tick(Player player){
         if (!(player.gravity == gravDirection) && player.intersects(this)) player.gravity = gravDirection;
     }
+
     public void render(Graphics g){
         if (gravDirection>0) {
             g.drawImage(img, x, y, null);

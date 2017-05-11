@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class Lust extends Level{
     public ArrayList<LustLevelTiles> lusts = new ArrayList();
     public static Mirror mirror = new Mirror(40,240);
+
     public Lust()throws IOException {
         drawWalls("resources/Level1.txt");
         drawLustLevelTiles();
