@@ -30,6 +30,7 @@ public class Box extends Player {
             if(cheat) {
                 for (int i = 0; i < level.walls.size() && twice < 2; i++) {
 
+
 //I know it looks messy but it works so leave it alone, or ask before changing this
 //this checks every one of the 192 possible boxes on all sides.
 // then tells the rest of the method which direction it cant move in
