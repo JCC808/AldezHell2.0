@@ -5,7 +5,6 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * Created by John8 on 3/13/2017.
@@ -22,7 +21,6 @@ public class Game extends Canvas implements Runnable, KeyListener {
 
     public static void main(String[] args) throws IOException {
         Game game = new Game();
-        Scanner scan = new Scanner(System.in);
         frame.setTitle("Adlez");
         frame.add(game);
         frame.setResizable(false);
